@@ -23,9 +23,11 @@ export default function List({ Number, setDetails ,setNumber}) {
 
   const Submit = () => {
     setDetails(rows);
-    setNumber(0);
+    setNumber(null);
     
   };
+
+
 
   return (
     <>
@@ -51,11 +53,12 @@ export default function List({ Number, setDetails ,setNumber}) {
         </div>
       ))}
 
-      <div id="L-btn">
+     {Number !== null &&  ( <div id="L-btn">
         <button className="btn btn-success  " onClick={Submit}>
           Submit
         </button>
-      </div>
+       
+      </div>)}
     </>
   );
 }

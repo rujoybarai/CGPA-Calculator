@@ -8,7 +8,7 @@ import CGPA from './CGPA';
 
 export default function Home() {
 
-    const [Number,setNumber]=useState(0);
+    const [Number,setNumber]=useState(null);
    const[Details,setDetails]=useState([]);
 
    const[Result,setResult]=useState(null);
@@ -50,12 +50,12 @@ useEffect(() => {
 console.log(Result);
   return (
     <Layout>
-      {Result !== null && <CGPA CGPA={Result}/>}
+      {Result !== null && <CGPA CGPA={Result} setResult={setResult} setNumber={setNumber}/>}
      <div className='Conatner'>
       <h2 className='text-center mt-1'>CGPA Calculator</h2>
       <div >
        <InputHeading setNumber={setNumber}/>
-       {Number && <List Number={Number} Details={Details} setDetails={setDetails} setNumber={setNumber}/>}
+       {Number !== null && <List Number={Number} Details={Details} setDetails={setDetails} setNumber={setNumber} />}
       </div>
      </div>
     </Layout>
